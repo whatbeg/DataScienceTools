@@ -37,3 +37,4 @@ def bucketized_column(column, boundaries):
     for i in range(len(_column)):
         _column[i] = binary_search(_column[i], boundaries)
     return _column
+
