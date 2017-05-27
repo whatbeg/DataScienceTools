@@ -37,10 +37,24 @@ class feature_engineeringSpec():
         data_tensor = feng.discretize_for_lookupTable(data_tensor, column)
         assert (data_tensor == np.array([[45, 1, 3, 1], [3,  2,  2,  2], [24,  3,  1,  2]])).all()
 
+    def cross_columnSpec(self):
+
+        columns = np.array([
+            ['lisa', 'doctor', '30k'],
+            ['william', 'worker', '23k'],
+            ['allen', 'lawyer', '20k']
+        ])
+        name_occupation = feng.cross_column(columns[:, :2], 100)
+        assert name_occupation.shape == (3, 1)
+        assert (name_occupation == np.array([[38], [22], [39]])).all()
+        name_occupation_salary = feng.cross_column(columns, 300)
+        assert (name_occupation_salary == np.array([[143], [299], [211]])).all()
+
     def doTest(self):
         self.binarySearchSpec()
         self.bucketized_columnSpec()
         self.discretize_for_lookupTableSpec()
+        self.cross_columnSpec()
         print ("All Test Passed!")
 
 if __name__ == '__main__':

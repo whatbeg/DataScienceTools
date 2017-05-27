@@ -57,3 +57,20 @@ def discretize_for_lookupTable(df, columns):
             else:
                 df[_, col] = total_dict[df[_, col]]
     return df
+
+
+def cross_column(columns, hash_backet_size=1e4):
+    """
+    generate cross column feature from `columns` with hash bucket.
+
+    :param columns: columns to use to generate cross column, Type must be ndarray
+    :param hash_backet_size: hash bucket size to bucketize cross columns to fixed hash bucket
+    :return: cross column, represented as a ndarray
+    """
+    assert columns.shape[0] > 0 and columns.shape[1] > 0
+    _crossed_column = np.zeros((columns.shape[0], 1))
+    for i in range(columns.shape[0]):
+        _crossed_column[i, 0] = (hash("_".join(columns[i, :])) % hash_backet_size
+                                 + hash_backet_size) % hash_backet_size
+    return _crossed_column
+
