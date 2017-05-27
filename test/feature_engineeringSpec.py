@@ -23,7 +23,6 @@ class feature_engineeringSpec():
         column = [5, 29, 30, 43, 64, 89]
         boundaries = [18, 25, 30, 35, 40, 45, 50, 55, 60, 65]
         feature_column = feng.bucketized_column(column, boundaries)
-        # print (feature_column)
         assert feature_column == [0, 2, 2, 5, 9, 10]
 
     def discretize_for_lookupTableSpec(self):
@@ -40,15 +39,15 @@ class feature_engineeringSpec():
     def cross_columnSpec(self):
 
         columns = np.array([
-            ['lisa', 'doctor', '30k'],
-            ['william', 'worker', '23k'],
-            ['allen', 'lawyer', '20k']
+            ['lisa', 'doctor', 30],
+            ['william', 'worker', 23],
+            ['allen', 'lawyer', 20]
         ])
         name_occupation = feng.cross_column(columns[:, :2], 100)
         assert name_occupation.shape == (3, 1)
         assert (name_occupation == np.array([[38], [22], [39]])).all()
         name_occupation_salary = feng.cross_column(columns, 300)
-        assert (name_occupation_salary == np.array([[143], [299], [211]])).all()
+        assert (name_occupation_salary == np.array([[183], [95], [279]])).all()
 
     def doTest(self):
         self.binarySearchSpec()

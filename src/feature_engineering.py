@@ -28,7 +28,7 @@ def bucketized_column(column, boundaries):
     """
     transform every value of a column to corresponding bucket according to boundaries
 
-    :param column: primitive column
+    :param column: primitive column, type is list
     :param boundaries: boundaries to bucketize
     :return: bucketized column
     """
@@ -70,7 +70,7 @@ def cross_column(columns, hash_backet_size=1e4):
     assert columns.shape[0] > 0 and columns.shape[1] > 0
     _crossed_column = np.zeros((columns.shape[0], 1))
     for i in range(columns.shape[0]):
-        _crossed_column[i, 0] = (hash("_".join(columns[i, :])) % hash_backet_size
+        _crossed_column[i, 0] = (hash("_".join(map(str, columns[i, :]))) % hash_backet_size
                                  + hash_backet_size) % hash_backet_size
     return _crossed_column
 
