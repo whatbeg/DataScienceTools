@@ -1,6 +1,10 @@
-import numpy as np
-import pandas as pd
+# ==================================
+# Author: whatbeg (Qiu Hu)
+# Created by: 2017. 5
+# Personal Site: http://whatbeg.com
+# ==================================
 
+import numpy as np
 import src.feature_engineering as feng
 
 

@@ -1,5 +1,12 @@
+# ==================================
+# Author: whatbeg (Qiu Hu)
+# Created by: 2017. 5
+# Personal Site: http://whatbeg.com
+# ==================================
+
+"""Utilities for feature engineering"""
+
 import numpy as np
-import pandas as pd
 
 
 def binary_search(val, array, start=0):
