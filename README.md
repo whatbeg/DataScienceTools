@@ -18,3 +18,10 @@ Design for feature engineerings and preprocessing of data science, including
 Methods of analysing and visualizing log file, including
 
 * analyse_bigdl : to analyse bigdl log file to get some visualization of training process.
+
+
+## transforms
+
+Data Transforms and preprocessing of images, text, or records etc, including
+
+* Normalize : Normalize(tensor, mean, std)
