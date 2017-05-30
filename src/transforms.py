@@ -27,3 +27,17 @@ def Normalize(tensor, mean, std):
         t -= m
         t /= s
     return _tensor
+
+
+def generate_data(data, label, batchSize, shuffle=True):
+    assert batchSize > 0
+    data_len = data.shape[0]
+    total_batch = data_len / batchSize + (1 if data_len % batchSize != 0 else 0)
+    if shuffle:
+        indices = np.random.permutation(data_len)
+        data = data[indices]
+        label = label[indices]
+    for idx in range(total_batch):
+        start = idx * batchSize
+        end = min((idx + 1) * batchSize, data_len)
+        yield data[start:end], label[start:end]
