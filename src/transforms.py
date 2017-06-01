@@ -30,6 +30,15 @@ def Normalize(tensor, mean, std):
 
 
 def generate_data(data, label, batchSize, shuffle=True):
+    """
+    generate a batch of data, according to (data, label)
+
+    :param data: data tensor, Type: ndarray
+    :param label: labels, Type: ndarray
+    :param batchSize: how many samples in one batch
+    :param shuffle: if shuffle primitive data and labels
+    :return: Iterator of every mini-batch (data, label)
+    """
     assert batchSize > 0
     data_len = data.shape[0]
     total_batch = data_len / batchSize + (1 if data_len % batchSize != 0 else 0)
