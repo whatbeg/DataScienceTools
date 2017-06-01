@@ -25,3 +25,4 @@ Methods of analysing and visualizing log file, including
 Data Transforms and preprocessing of images, text, or records etc, including
 
 * Normalize : Normalize(tensor, mean, std)
+* generate_data : generate a batch of data
