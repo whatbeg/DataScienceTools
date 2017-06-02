@@ -46,17 +46,18 @@ def bucketized_column(column, boundaries):
     return _column
 
 
-def discretize_for_lookupTable(df, columns):
+def discretize_for_lookupTable(df, columns, start=0):
     """
     discretize for BigDL's lookupTable's requirement: elements of input should be little than or equal to $nIndex + 1
 
     :param df: data tensor. Type must be numpy.ndarray
     :param columns: columns to do discretize
+    :param start: index that starts from
     :return: discretized data tensor
     """
     for col in columns:
         total = sorted({}.fromkeys(df[:, col]).keys())
-        total_dict = {k: i+1
+        total_dict = {k: i+start
                       for i, k in enumerate(total)}
         for _ in range(len(df[:, col])):
             if df[_, col] not in total_dict.keys():

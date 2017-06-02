@@ -37,7 +37,7 @@ class feature_engineeringSpec():
             [3, 4, 5, 9],
             [24, 6, 2, 9]
         ])
-        data_tensor = feng.discretize_for_lookupTable(data_tensor, column)
+        data_tensor = feng.discretize_for_lookupTable(data_tensor, column, 1)
         assert (data_tensor == np.array([[45, 1, 3, 1], [3,  2,  2,  2], [24,  3,  1,  2]])).all()
 
     def cross_columnSpec(self):
