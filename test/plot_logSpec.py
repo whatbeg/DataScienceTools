@@ -17,8 +17,13 @@ class plot_logSpec(object):
 
         plog.analyse_bigdl(["../Spec_data/plot_log_bigdl.log", ], "Converge Speed")
 
+    def analyse_pytorchSpec(self):
+
+        plog.analyse_pytorch(["../Spec_data/plot_log_pytorch.log", ], "Analyse pytorch log")
+
     def doTest(self):
         self.analyse_bigdlSpec()
+        self.analyse_pytorchSpec()
         print ("All Test Passed!")
 
 
