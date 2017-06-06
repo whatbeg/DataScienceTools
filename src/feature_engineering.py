@@ -82,3 +82,22 @@ def cross_column(columns, hash_backet_size=1e4):
                                  + hash_backet_size) % hash_backet_size
     return _crossed_column
 
+
+def sparse_column(column, vocab_size):
+    """
+    convert integer id to sparse representation.
+    For example, 3 -> [0, 0, 0, 1, 0, ...]
+
+    :param column: the whole column with integer ids of this feature, Type: ndarray
+    :param vocab_size: length of sparse vector
+    :return: new column consist of converted sparse features, Type: ndarray
+    """
+    n = column.shape[0]
+    assert n > 0 and vocab_size > 0
+    _newcol = np.zeros((n, vocab_size))
+    for row in range(n):
+        ind = int(column[row])
+        assert 0 <= ind < vocab_size
+        np.put(_newcol[row], ind, 1)
+    return _newcol
+

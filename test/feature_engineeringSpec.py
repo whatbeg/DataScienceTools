@@ -53,11 +53,18 @@ class feature_engineeringSpec():
         name_occupation_salary = feng.cross_column(columns, 300)
         assert (name_occupation_salary == np.array([[183], [95], [279]])).all()
 
+    def sparse_columnSpec(self):
+
+        column = np.array([1, 2, 3])
+        ret_column = feng.sparse_column(column, vocab_size=4)
+        print(ret_column)
+
     def doTest(self):
         self.binarySearchSpec()
         self.bucketized_columnSpec()
         self.discretize_for_lookupTableSpec()
         self.cross_columnSpec()
+        self.sparse_columnSpec()
         print ("All Test Passed!")
 
 if __name__ == '__main__':
