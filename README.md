@@ -12,6 +12,7 @@ Design for feature engineerings and preprocessing of data science, including
 * bucketized_column
 * discrete_for_lookupTable
 * cross_column
+* sparse_column
 
 ## plot log
 
