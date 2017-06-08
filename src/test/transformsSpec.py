@@ -5,7 +5,8 @@
 # ==================================
 
 import numpy as np
-import src.transforms as trans
+
+import src.main.transforms as trans
 
 
 class transformsSpec(object):

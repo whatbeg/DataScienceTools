@@ -5,7 +5,8 @@
 # ==================================
 
 import numpy as np
-import src.feature_engineering as feng
+
+import src.main.feature_engineering as feng
 
 
 class feature_engineeringSpec():
@@ -57,7 +58,7 @@ class feature_engineeringSpec():
 
         column = np.array([1, 2, 3])
         ret_column = feng.sparse_column(column, vocab_size=4)
-        print(ret_column)
+        # print(ret_column)
 
     def doTest(self):
         self.binarySearchSpec()

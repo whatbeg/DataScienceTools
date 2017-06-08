@@ -4,8 +4,7 @@
 # Personal Site: http://whatbeg.com
 # ==================================
 
-import numpy as np
-import src.plot_log as plog
+import src.main.plot_log as plog
 
 
 class plot_logSpec(object):
@@ -15,11 +14,11 @@ class plot_logSpec(object):
 
     def analyse_bigdlSpec(self):
 
-        plog.analyse_bigdl(["../Spec_data/plot_log_bigdl.log", ], "Converge Speed")
+        plog.analyse_bigdl(["./Spec_data/plot_log_bigdl.log", ], "Converge Speed")
 
     def analyse_pytorchSpec(self):
 
-        plog.analyse_pytorch(["../Spec_data/plot_log_pytorch.log", ], "Analyse pytorch log")
+        plog.analyse_pytorch(["./Spec_data/plot_log_pytorch.log", ], "Analyse pytorch log")
 
     def doTest(self):
         self.analyse_bigdlSpec()
